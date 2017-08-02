@@ -2,17 +2,20 @@
   "name": "bump",
   "version": "0.1.0",
   "description": "Node module that generates a new git tag based on the given release type.",
-  "main": "index.js",
   "scripts": {
+    "bump": "./bin/bump",
     "test": "./node_modules/.bin/mocha -R spec"
   },
   "repository": {
     "type": "git",
     "url": "git://github.com/johnshopkins/bump.git"
   },
+  "dependencies": {
+    "chalk": "^2.0.1"
+  },
   "devDependencies": {
-    "chai": "~1.9.0",
-    "mocha": "~1.17.1"
+    "chai": "^4.1.0",
+    "mocha": "^3.5.0"
   },
   "author": "Jen Wachter",
   "license": "MIT",

@@ -1,0 +1,25 @@
+#!/usr/bin/env node
+
+var getTags = require('../lib/get-tags');
+var getLatestTag = require('../lib/get-latest-tag');
+var getNewTag = require('../lib/get-new-tag');
+var log = require('../lib/log');
+
+
+// parse and validate bump type
+var type = process.argv.pop();
+if (!type) {
+  return log.error('Please provide a bump type: major, minor, or hotfix');
+}
+
+var valid = ["major", "minor", "hotfix"];
+if (valid.indexOf(type) === -1) {
+  return log.error('Please provide a valid bump type: major, minor, or hotfix');
+}
+
+
+var tags = getTags();
+var latest = getLatestTag(tags);
+var newTag = getNewTag(latest, type);
+
+console.log(newTag);
