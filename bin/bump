@@ -22,4 +22,5 @@ var tags = getTags();
 var latest = getLatestTag(tags);
 var newTag = getNewTag(latest, type);
 
-console.log(newTag);
+log.info('Your new tag is ' + newTag);
+log.info('Run `git tag -a v' + newTag + ' -m "Version ' + newTag + '"');
