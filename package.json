@@ -2,8 +2,10 @@
   "name": "tag-bump",
   "version": "0.1.0",
   "description": "Node module that generates a new git tag based on the given release type.",
+  "bin" : {
+    "tagbump": "./bin/bump"
+  },
   "scripts": {
-    "bump": "./bin/bump",
     "test": "./node_modules/.bin/mocha -R spec"
   },
   "repository": {
