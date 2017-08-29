@@ -9,12 +9,12 @@ var log = require('../lib/log');
 // parse and validate bump type
 var type = process.argv.pop();
 if (!type) {
-  return log.error('Please provide a bump type: major, minor, or hotfix');
+  return log.error('Please provide a bump type: major, minor, or bugfix');
 }
 
-var valid = ["major", "minor", "hotfix"];
+var valid = ["major", "minor", "bugfix"];
 if (valid.indexOf(type) === -1) {
-  return log.error('Please provide a valid bump type: major, minor, or hotfix');
+  return log.error('Please provide a valid bump type: major, minor, or bugfix');
 }
 
 

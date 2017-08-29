@@ -3,14 +3,14 @@ var getNewTag = require("../lib/get-new-tag");
 
 describe("getNewTag", function () {
 
-  it("should bump a hotfix release", function () {
+  it("should bump a bugfix release", function () {
 
     var v;
 
-    v = getNewTag("1.2", "hotfix");
+    v = getNewTag("1.2", "bugfix");
     expect(v).to.equal("1.2.1");
 
-    v = getNewTag("1.2.3", "hotfix");
+    v = getNewTag("1.2.3", "bugfix");
     expect(v).to.equal("1.2.4");
 
   });
