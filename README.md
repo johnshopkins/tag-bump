@@ -5,8 +5,10 @@ Node module that reports what tag you should create next based on the given rele
 ### Installation
 
 ```bash
+cd ~/www
 git clone git@github.com:johnshopkins/tag-bump.git
 cd tag-bump
+npm install
 npm install -g
 ```
 
