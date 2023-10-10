@@ -1,6 +1,6 @@
 {
   "name": "tag-bump",
-  "version": "0.1.0",
+  "version": "2.0",
   "description": "Node module that generates a new git tag based on the given release type.",
   "main": "bin/bump.js",
   "type": "module",
