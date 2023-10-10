@@ -43,7 +43,6 @@ try {
       await exec('git reset head');
 
       const files = updated.join(' ');
-      console.log('files', files)
       await exec(`git add ${files}`);
 
       // commit changes
