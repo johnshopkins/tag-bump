@@ -25,6 +25,7 @@ try {
 
   const updateFiles = await binary('Updated composer.json and/or package.json?', true);
   const createTag = await binary('Create the tag now?', true);
+  const tagMessage = createTag ? await question('Tag message', 'Version ' + newTag) : '';
 
   if (updateFiles) {
 
@@ -51,8 +52,7 @@ try {
   }
 
   if (createTag) {
-
-    const tagMessage = await question('Tag message', 'Version ' + newTag);
+    
     const tagCommand = `git tag -a v${newTag} -m "${tagMessage}"`;
 
     await exec(tagCommand);
