@@ -2,27 +2,41 @@
   "name": "tag-bump",
   "version": "0.1.0",
   "description": "Node module that generates a new git tag based on the given release type.",
-  "bin" : {
-    "tagbump": "./bin/bump"
+  "main": "bin/bump.js",
+  "type": "module",
+  "bin": {
+    "tagbump": "./bin/bump.js"
   },
   "scripts": {
-    "test": "./node_modules/.bin/mocha -R spec"
+    "test": "jest",
+    "coverage": "jest --coverage"
   },
+  "author": "Jen Wachter",
+  "license": "MIT",
   "repository": {
     "type": "git",
     "url": "git://github.com/johnshopkins/tag-bump.git"
   },
-  "dependencies": {
-    "chalk": "^2.0.1"
-  },
-  "devDependencies": {
-    "chai": "^4.1.0",
-    "mocha": "^3.5.0"
-  },
-  "author": "Jen Wachter",
-  "license": "MIT",
+  "homepage": "https://github.com/johnshopkins/tag-bump",
   "bugs": {
     "url": "https://github.com/johnshopkins/tag-bump/issues"
   },
-  "homepage": "https://github.com/johnshopkins/tag-bump"
+  "dependencies": {
+    "chalk": "^5.3.0",
+    "prompts": "^2.4.2"
+  },
+  "devDependencies": {
+    "@babel/preset-env": "^7.22.20",
+    "jest": "^29.7.0"
+  },
+  "babel": {
+    "presets": [
+      "@babel/preset-env"
+    ]
+  },
+  "jest": {
+    "moduleNameMapper": {
+      "exec.js$": "<rootDir>/lib/exec.js"
+    }
+  }
 }
