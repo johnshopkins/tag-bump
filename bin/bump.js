@@ -24,7 +24,7 @@ try {
   console.log(chalk.green('The new tag is: ') + chalk.green.bold(newTag));
 
   const updateFiles = await binary('Updated composer.json and/or package.json?', true);
-  // const createTag = await binary('Create the tag now?', true);
+  const createTag = await binary('Create the tag now?', true);
 
   if (updateFiles) {
 
@@ -50,17 +50,17 @@ try {
     }
   }
 
-  // if (createTag) {
-  //
-  //   const tagMessage = await question('Tag message', 'Version ' + newTag);
-  //   const tagCommand = `git tag -a v${newTag} -m "${tagMessage}"`;
-  //
-  //   await exec(tagCommand);
-  //   console.log(chalk.green(`Tag v${newTag} created.`));
-  //
-  // } else {
-  //   console.log(chalk.green('To create the tag manually, run: ' + chalk.green.bold('git tag -a v' + newTag + ' -m "Version ' + newTag + '"')));
-  // }
+  if (createTag) {
+
+    const tagMessage = await question('Tag message', 'Version ' + newTag);
+    const tagCommand = `git tag -a v${newTag} -m "${tagMessage}"`;
+
+    await exec(tagCommand);
+    console.log(chalk.green(`Tag v${newTag} created.`));
+
+  } else {
+    console.log(chalk.green('To create the tag manually, run: ' + chalk.green.bold('git tag -a v' + newTag + ' -m "Version ' + newTag + '"')));
+  }
 
 } catch (error) {
   console.log('caught error!')
