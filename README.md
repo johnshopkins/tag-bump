@@ -1,6 +1,6 @@
 # tagbump
 
-Node module that bumps the version of a package, optionally updating composer.json and package.json files and creating the git tag for you.
+Node module that bumps the version of a package, optionally updating composer.json and/or package.json files and creating the git tag for you.
 
 ## Installation
 
