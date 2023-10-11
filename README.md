@@ -5,7 +5,7 @@ Node module that bumps the version of a package, optionally updating composer.js
 ## Installation
 
 ```bash
-npm install -g tag-bump
+npm install -g @johnshopkins/tag-bump
 ```
 
 ## Usage
