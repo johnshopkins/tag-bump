@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 
 import chalk from 'chalk';
+import minimist from 'minimist';
 
 import exec from '../lib/exec.js';
 import getLatestTag from '../lib/get-latest-tag.js';
@@ -10,7 +11,9 @@ import { binary, question } from '../lib/prompt.js';
 import updateManifrst from '../lib/update-manifest.js';
 
 try {
-  const type = process.argv.pop();
+  const argv = minimist(process.argv.slice(2));
+
+  const type = argv._.shift();
   const valid = ['major', 'minor', 'bugfix'];
 
   if (!type || valid.indexOf(type) === -1) {
@@ -23,9 +26,12 @@ try {
 
   console.log(chalk.green('The new tag is: ') + chalk.green.bold(newTag));
 
-  const updateFiles = await binary('Updated composer.json and/or package.json?', true);
-  const createTag = await binary('Create the tag now?', true);
-  const tagMessage = createTag ? await question('Tag message', 'Version ' + newTag) : '';
+  const assumeYes = argv.y !== undefined && argv.y === true;
+  const defaultTagMessage = 'Version ' + newTag;
+
+  const updateFiles = assumeYes ? true : await binary('Updated composer.json and/or package.json?', true);
+  const createTag = assumeYes ? true : await binary('Create the tag now?', true);
+  const tagMessage = createTag ? (assumeYes ? defaultTagMessage : await question('Tag message', defaultTagMessage)) : '';
 
   if (updateFiles) {
 
@@ -51,7 +57,7 @@ try {
   }
 
   if (createTag) {
-    
+
     const tagCommand = `git tag -a v${newTag} -m "${tagMessage}"`;
 
     await exec(tagCommand);
@@ -62,6 +68,5 @@ try {
   }
 
 } catch (error) {
-  console.log('caught error!')
   console.log(chalk.bold.red(error))
 }

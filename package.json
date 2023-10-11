@@ -1,7 +1,7 @@
 {
   "name": "tag-bump",
   "version": "2.0",
-  "description": "Node module that generates a new git tag based on the given release type.",
+  "description": "Node module that bumps the version of a package, optionally updating composer.json and package.json files and creating the git tag for you.",
   "main": "bin/bump.js",
   "type": "module",
   "bin": {
@@ -23,6 +23,7 @@
   },
   "dependencies": {
     "chalk": "^5.3.0",
+    "minimist": "^1.2.8",
     "prompts": "^2.4.2"
   },
   "devDependencies": {
