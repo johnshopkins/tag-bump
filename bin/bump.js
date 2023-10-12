@@ -11,6 +11,14 @@ import { binary, question } from '../lib/prompt.js';
 import updateManifrst from '../lib/update-manifest.js';
 
 try {
+  await exec('git status');
+} catch (error) {
+  console.log(chalk.bold.red('There is not a git repository in this directory.'));
+  process.exit(1);
+}
+
+try {
+
   const argv = minimist(process.argv.slice(2));
 
   const type = argv._.shift();
