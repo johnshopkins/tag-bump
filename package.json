@@ -1,7 +1,7 @@
 {
   "name": "@johnshopkins/tag-bump",
-  "version": "2.0",
-  "description": "Node module that bumps the version of a package, optionally updating composer.json and package.json files and creating the git tag for you.",
+  "version": "1.0.0",
+  "description": "Node module that bumps the version of a package, optionally updating composer.json and/or package.json files and creating the git tag for you.",
   "main": "bin/bump.js",
   "type": "module",
   "bin": {
